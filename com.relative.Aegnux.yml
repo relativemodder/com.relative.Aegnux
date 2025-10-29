@@ -1,0 +1,49 @@
+app-id: com.relative.Aegnux
+runtime: org.kde.Platform
+runtime-version: '6.8'
+sdk: org.kde.Sdk
+base: io.qt.PySide.BaseApp
+base-version: '6.8'
+command: run_from_flatpak.sh
+finish-args:
+  - --env=BASEAPP_DISABLE_NUMPY=1
+  - --share=ipc
+  - --socket=wayland
+  - --socket=x11
+  - --socket=session-bus
+  - --socket=system-bus
+  - --device=all
+  - --allow=devel
+  - --allow=multiarch
+  - --allow=canbus
+  - --allow=per-app-dev-shm
+  - --filesystem=home
+  - --share=network
+modules:
+  - python3-requests.json
+
+  - name: aegnux
+    buildsystem: simple
+    build-commands:
+      - cp -r src/deps/aenux/* /app/bin
+      - install -Dm755 run_from_flatpak.sh /app/bin/run_from_flatpak.sh
+      - install -Dm644 aegnux.png /app/share/icons/hicolor/scalable/apps/com.relative.Aegnux.png
+      - install -Dm644 com.relative.Aegnux.desktop /app/share/applications/com.relative.Aegnux.desktop
+    sources:
+      - type: git
+        url: https://github.com/relativemodder/aegnux.git
+        dest: src/deps/aenux
+        branch: main
+
+      - type: file
+        path: icons/aegnux.png
+        dest-filename: aegnux.png
+
+      - type: file
+        path: com.relative.Aegnux.desktop
+
+      - type: script
+        dest-filename: run_from_flatpak.sh
+        commands:
+          - cd /app/bin
+          - python main.py
