@@ -29,6 +29,10 @@ modules:
       - install -Dm755 run_from_flatpak.sh /app/bin/run_from_flatpak.sh
       - install -Dm644 aegnux.png /app/share/icons/hicolor/scalable/apps/com.relative.Aegnux.png
       - install -Dm644 com.relative.Aegnux.desktop /app/share/applications/com.relative.Aegnux.desktop
+      - cd /app/bin && ./prepare.sh
+    build-options:
+      build-args:
+        - --share=network
     sources:
       - type: git
         url: https://github.com/relativemodder/aegnux.git
