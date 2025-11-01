@@ -1,6 +1,8 @@
+<img src="https://github.com/relativemodder/aegnux/raw/main/icons/aegnux.png" width="128" />
+
 # Aegnux Flatpak source
 
-Builds Aegnus Flatpak from [this source](https://github.com/relativemodder/aegnux).
+Builds Aegnux Flatpak from [this source](https://github.com/relativemodder/aegnux).
 
 [Download Flatpak](https://github.com/relativemodder/com.relative.Aegnux/releases/latest)
 
