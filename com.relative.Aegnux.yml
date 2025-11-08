@@ -30,6 +30,7 @@ modules:
       - install -Dm755 run_from_flatpak.sh /app/bin/run_from_flatpak.sh
       - install -Dm644 aegnux.png /app/share/icons/hicolor/scalable/apps/com.relative.Aegnux.png
       - install -Dm644 com.relative.Aegnux.desktop /app/share/applications/com.relative.Aegnux.desktop
+      - install -Dm644 application-vnd.adobe.aftereffects.project.xml /app/share/mime/packages/com.relative.Aegnux-mime.xml
       - cd /app/bin && ./prepare.sh
     build-options:
       build-args:
@@ -47,8 +48,11 @@ modules:
       - type: file
         path: com.relative.Aegnux.desktop
 
+      - type: file
+        path: application-vnd.adobe.aftereffects.project.xml
+
       - type: script
         dest-filename: run_from_flatpak.sh
         commands:
           - cd /app/bin
-          - python main.py
+          - python main.py "$@"
