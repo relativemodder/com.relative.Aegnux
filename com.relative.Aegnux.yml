@@ -52,6 +52,9 @@ modules:
       - type: file
         path: application-vnd.adobe.aftereffects.project.xml
 
+      - type: file
+        path: aegnux-misterhorse-handler.desktop
+
       - type: script
         dest-filename: run_from_flatpak.sh
         commands:
