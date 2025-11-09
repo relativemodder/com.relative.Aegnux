@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Aegnux Mister Horse Handler
+Comment=Aegnux Handler for misterhorsepm://
+Exec=run_from_flatpak.sh %U
+MimeType=x-scheme-handler/misterhorsepm
+Terminal=false
+NoDisplay=true
